@@ -1,6 +1,7 @@
 export default {
     template: `
         <form @submit.prevent="add">
+            <label class="form-label">Add Todo & Tag</label>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Add Todo" v-model="newTodo">
                 <input type="text" class="form-control" placeholder="Add Tag" v-model="newTag">

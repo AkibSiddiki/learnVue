@@ -1,0 +1,34 @@
+{
+    "todos": [
+        {
+            "id": 1,
+            "title": "Learn Vue",
+            "tag": "front-end",
+            "completed": false
+        },
+        {
+            "id": 2,
+            "title": "Learn React",
+            "tag": "front-end",
+            "completed": false
+        },
+        {
+            "id": 3,
+            "title": "Learn Angular",
+            "tag": "front-end",
+            "completed": false
+        },
+        {
+            "id": 4,
+            "title": "Learn Laravel",
+            "tag": "Back-end",
+            "completed": false
+        },
+        {
+            "id": 5,
+            "title": "Learn Nest JS",
+            "tag": "Back-end",
+            "completed": false
+        }
+    ]
+}

@@ -3,8 +3,12 @@ import TagList from './TagList.js';
 export default {
     components: { Todo, TagList },
     template: `
+    <slot></slot>
     <section v-show="todos.length" class="mt-4">
-        <p class="mb-2">{{ title }} ({{ todos.length }})</p>
+        <div class="d-flex justify-content-between">
+            <div><p class="mb-2">{{ title }} ({{ todos.length }})</p></div>
+            <div v-if="canHide"> <button class="btn btn-outline-light btn-sm border-0" @click="$emit('hide')">X</button></div>
+        </div>
         <TagList
         :initialTags="todos.map(value => value.tag)"
         v-model:currentTag="currentTag"
@@ -18,6 +22,10 @@ export default {
     props: {
         todos: Array,
         title: String,
+        canHide: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {

@@ -5,51 +5,27 @@ export default {
 
     template:
         `<div class="container py-5 _100vh">
-    <div class="d-flex flex-row justify-content-center">
+        <div class="d-flex flex-row justify-content-center">
         <div class="m-auto">
-            <Todolist :todos="notCompleted" title="In Progress"></Todolist>
-            <Todolist :todos="completed" title="Completed"></Todolist>
+            <Todolist :todos="notCompleted" title="In Progress" >
             <TodoCreate @create="add"></TodoCreate>
+            </Todolist>
+            <Todolist v-if="canshow" canHide @hide="canshow = false" :todos="completed" title="Completed"></Todolist>
         </div>
-    </div>
-</div>`,
+        </div>
+        </div>`,
     data() {
         return {
             darkMode: false,
-            toDoList: [
-                {
-                    id: 1,
-                    title: 'Learn Vue',
-                    completed: false,
-                    tag: 'front-end'
-                },
-                {
-                    id: 2,
-                    title: 'Learn React',
-                    completed: false,
-                    tag: 'front-end'
-
-                },
-                {
-                    id: 3,
-                    title: 'Learn Angular',
-                    completed: false,
-                    tag: 'front-end'
-                },
-                {
-                    id: 4,
-                    title: 'Learn Laravel',
-                    completed: false,
-                    tag: 'Back-end'
-                },
-                {
-                    id: 5,
-                    title: 'Learn Nest JS',
-                    completed: false,
-                    tag: 'Back-end'
-                }
-            ],
+            toDoList: [],
+            canshow: true
         };
+    },
+
+    created() {
+        fetch('http://localhost:3000/todos').then(res => res.json()).then(data => {
+            this.toDoList = data;
+        })
     },
 
     computed: {

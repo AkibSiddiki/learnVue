@@ -4,6 +4,6 @@ export default {
         Todoall
     },
 
-    template: `<Todoall><Todoall/>`,
+    template: `<Todoall></Todoall>`,
 
 }
