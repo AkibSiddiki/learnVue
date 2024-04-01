@@ -3,6 +3,7 @@ export default {
         <form @submit.prevent="add">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Add Todo" v-model="newTodo">
+                <input type="text" class="form-control" placeholder="Add Tag" v-model="newTag">
                 <button class="btn btn-success " :disabled="newTodo.length == 0" type="submit">Add</button>
             </div>
         </form>
@@ -10,15 +11,16 @@ export default {
 
     data() {
         return {
-            newTodo: ''
+            newTodo: '',
+            newTag: ''
         }
     },
 
     methods: {
         add() {
-            this.$emit('create', this.newTodo);
-
+            this.$emit('create', this.newTodo, this.newTag);
             this.newTodo = '';
+            this.newTag = '';
         }
     }
 }

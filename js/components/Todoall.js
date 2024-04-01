@@ -3,7 +3,8 @@ import TodoCreate from "./TodoCreate.js";
 export default {
     components: { Todolist, TodoCreate },
 
-    template: `<div class="container py-5 _100vh">
+    template:
+        `<div class="container py-5 _100vh">
     <div class="d-flex flex-row justify-content-center">
         <div class="m-auto">
             <Todolist :todos="notCompleted" title="In Progress"></Todolist>
@@ -11,7 +12,6 @@ export default {
             <TodoCreate @create="add"></TodoCreate>
         </div>
     </div>
-
 </div>`,
     data() {
         return {
@@ -20,27 +20,33 @@ export default {
                 {
                     id: 1,
                     title: 'Learn Vue',
-                    completed: false
+                    completed: false,
+                    tag: 'front-end'
                 },
                 {
                     id: 2,
                     title: 'Learn React',
-                    completed: false
+                    completed: false,
+                    tag: 'front-end'
+
                 },
                 {
                     id: 3,
                     title: 'Learn Angular',
-                    completed: false
+                    completed: false,
+                    tag: 'front-end'
                 },
                 {
                     id: 4,
-                    title: 'Learn React Native',
-                    completed: false
+                    title: 'Learn Laravel',
+                    completed: false,
+                    tag: 'Back-end'
                 },
                 {
                     id: 5,
-                    title: 'Learn Vue Native',
-                    completed: false
+                    title: 'Learn Nest JS',
+                    completed: false,
+                    tag: 'Back-end'
                 }
             ],
         };
@@ -58,11 +64,12 @@ export default {
     },
 
     methods: {
-        add(value) {
+        add(newTodo, newTag) {
             this.toDoList.push({
-                title: value,
+                id: this.toDoList.length + 1,
+                title: newTodo,
                 completed: false,
-                id: this.toDoList.length + 1
+                tag: newTag
             });
         }
     }
