@@ -3,7 +3,7 @@ import TagList from './TagList.js';
 export default {
     components: { Todo, TagList },
     template: `
-    <slot></slot>
+    <slot/>
     <section v-show="todos.length" class="mt-4">
         <div class="d-flex justify-content-between">
             <div><p class="mb-2">{{ title }} ({{ todos.length }})</p></div>
